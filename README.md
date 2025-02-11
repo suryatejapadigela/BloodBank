@@ -31,7 +31,7 @@ LifeLine is a web application designed to facilitate blood donation and manage b
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/VenkatreddyPadala/LifeLine-BloodBank.git
+   git clone https://github.com/suryatejapadigela/BloodBank.git
    ```
 
 2. Navigate to the project directory:
