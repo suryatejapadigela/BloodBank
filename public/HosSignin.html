@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-half {
+            background-color: #C1A6A6;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-half img{
+            width: 135%;
+            height: 100%;
+            mix-blend-mode:hard-light;
+
+        }
+
+        .right-half {
+            background-color:#86020F;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        main {
+            width: 100%;
+            max-width: 500px;
+            background: #86020F;
+            color: white;
+            padding: 30px;
+            border: none;
+            /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+        }
+        main img{
+            width: 150px;
+            padding: 0 180px;
+        }
+
+        h4 {
+            margin-bottom: 1em;
+            font-size: 1.25em;
+            color: #333;
+        }
+
+        .input-box {
+            margin-bottom: 1rem;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+
+        .input-box input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 95%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+        #loginForm{
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+        
+            padding: 0.75em;
+            background-color:#4A0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #793131;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+        @media (max-width: 1024px) {
+    main {
+        margin-top: 100px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        margin-top: 80px;
+        padding: 20px;
+    }
+
+    .input-box input {
+        padding: 15px;
+    }
+
+    button[type="submit"],
+    button[type="button"] {
+        padding: 0.5em;
+        font-size: 0.9em;
+    }
+
+    .left-half img {
+        display: none; /* Hide the image */
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        margin-top: 50px;
+        padding: 15px;
+    }
+
+    .input-box input {
+        padding: 12px;
+    }
+
+    button[type="submit"],
+    button[type="button"] {
+        padding: 0.5em;
+        font-size: 0.8em;
+    }
+
+    .left-half {
+        display: none;
+    }
+
+    .right-half {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main img {
+        width: 100px;
+        padding: 0 120px;
+    }
+
+    #loginForm {
+        gap: 12px;
+    }
+}
+    </style>
+
+</head>
+<body>
+    <div class="left-half">
+        <!-- <img src="retrosupply-jLwVAUtLOAQ-unsplash.jpg" alt=""> -->
+        <img src="download.png" alt="">
+    </div>
+    <div class="right-half">
+        <!-- <h3>Login</h3> -->
+        <main>
+            <img src="Heart.jpeg" alt="">
+            <form id="loginForm" action="/hospitals/signin" method="POST">
+                <div class="input-box">
+                    <label for="hospID">Hospital ID</label>
+                    <input type="number" id="hospID" name="hospID" placeholder="Enter your Hospital ID" required>
+                </div>
+                <div id="passwordBox" class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <br>
+                <div class="input-box">
+                    <button id="loginBtn" type="submit">Submit</button>
+                </div>
+                <p><a href="HosSignup.html" style="color: white;">No Account? Create Account Here</a></p>
+                <p><a href="signin.html" style="color: white;">User Portal</a></p>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

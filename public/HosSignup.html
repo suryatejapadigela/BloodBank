@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-half {
+            background-image: url(retrosupply-jLwVAUtLOAQ-unsplash.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-half img{
+            width: 130%;
+            height: 100%;
+        }
+
+        .right-half {
+            background-color: #86020F;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        main {
+            width: 100%;
+            max-width: 600px;
+            background:  #86020F;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            gap: 10px;
+            border: none;
+        }
+        main img{
+            width:150px; 
+            padding: 0 220px;
+        }
+
+        h4 {
+            margin-bottom: 1em;
+            font-size: 1.25em;
+            color: #333;
+        }
+
+        .input-box {
+            margin-bottom: 1em;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+
+        .input-box input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+
+        #dual-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #dual-box .input-box {
+            width: 48%;
+        }
+
+        button[type="submit"] {
+            width: 95%;
+            padding: 0.75em;
+            background-color:#4A0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #793131;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                margin-top: 100px;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .left-half {
+                display: none;
+            }
+
+            .right-half {
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            main {
+                margin-top: 80px;
+                padding: 20px;
+            }
+
+            main img {
+                width: 120px;
+                padding: 0 150px;
+            }
+
+            .input-box input {
+                padding: 15px;
+                width: 85%;
+            }
+
+            button[type="submit"] {
+                padding: 0.5em;
+                font-size: 0.9em;
+            }
+
+            #dual-box {
+                flex-direction: column;
+            }
+
+            #dual-box .input-box {
+                width: 100%;
+                margin-bottom: 1em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main {
+                margin-top: 50px;
+                padding: 15px;
+            }
+
+            main img {
+                width: 100px;
+                padding: 0 120px;
+            }
+
+            .input-box input {
+                padding: 12px;
+                width: 80%;
+            }
+
+            button[type="submit"] {
+                padding: 0.5em;
+                font-size: 0.8em;
+            }
+
+            #dual-box {
+                flex-direction: column;
+            }
+
+            #dual-box .input-box {
+                width: 100%;
+                margin-bottom: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="left-half">
+        <img src="download.png" alt="">
+    </div>
+    <div class="right-half">
+        <main>
+            <img src="Heart.jpeg" alt="">
+            <form id="registrationForm" action="/hospitals/signup" method="POST">
+                <div id="dual-box">
+                    <div class="input-box">
+                        <label for="HospName">Hospital Name</label>
+                        <input type="text" id="HospName" name="HospName" placeholder="Enter your Hospital Name" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="DocName">Doctor Name</label>
+                        <input type="text" id="DocName" name="DocName" placeholder="Enter the Name" required>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="hospID">Hospital ID</label>
+                    <input type="number" id="hospID" name="hospID" placeholder="Enter your Hospital ID" required>
+                </div>
+                <div id="dual-box">
+                    <div class="input-box">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <p id="passwordError" style="color: red;"></p>
+                </div>
+                <div class="input-box">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <p><a href="HosSignin.html">Already have an account? Login Here</a></p>
+        </main>
+    </div>
+
+    <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        if (password !== confirmPassword) {
+            document.getElementById('passwordError').textContent = 'Passwords do not match.';
+            event.preventDefault();
+        }
+    });
+    </script>
+</body>
+</html>

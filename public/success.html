@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+</head>
+<body>
+    <a href="/signout"><button>Signout</button></a>
+    <h1>Donate</h1>
+    <table border="2">
+        <tr>
+            <th>Patient Name</th>
+            <th>Hospital Name</th>
+            <th>Hospital ID</th>
+            <th>BloodGroup</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>ABC</td>
+            <td>H1</td>
+            <td>123</td>
+            <td>O+</td>
+            <td>Hyderabad</td>
+            <td><button style="background-color: purple; color: white;">Accept</button></td>
+        </tr>
+    </table>
+    <form action="/donate" method="post">
+        Donor Name <input type="text"><br>
+        BloodGroup <input type="text"><br>
+        Location <input type="text"><br>
+        <input type="submit" value="submit">
+    </form>
+    <hr>
+    <h1>Create a Request</h1>
+    <form action="/request" method="post">
+        <input type="text" name="patientname" placeholder="Patient Name" required>
+        <input type="number" name="phonenumber" placeholder="Phone Number" required>
+        <input type="text" name="HospitalName" placeholder="Hospital Name" required>
+        <input type="number" name="HosptialID" placeholder="Hospital ID" required>
+        <input type="text" name="BloodGroup" placeholder="Blood Group" required>
+        <input type="text" name="Location" placeholder="Location" required>
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <h1>Pending Request</h1>
+    <table border="2">
+        <tr>
+            <th>Patient Name</th>
+            <th>Hospital Name</th>
+            <th>Hospital ID</th>
+            <th>BloodGroup</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td>ABC</td>
+            <td>H1</td>
+            <td>123</td>
+            <td>O+</td>
+            <td>Hyderabad</td>
+        </tr>
+        <tr>
+            <td>DEF</td>
+            <td>H2</td>
+            <td>124</td>
+            <td>O-</td>
+            <td>Warangal</td>
+        </tr>
+    </table>
+    <hr>
+    <h1>Find</h1>
+    <table border="2">
+        <tr>
+            <th>Donar Name</th>
+            <th>BloodGroup</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>ABC</td>
+            <td>O+</td>
+            <td>Hyderabad</td>
+            <td><button style="background-color: purple; color: white;">Request</button></td>
+        </tr>
+        <tr>
+            <td>DEF</td>
+            <td>O-</td>
+            <td>Warangal</td>
+            <td><button style="background-color: purple; color: white;">Request</button></td>
+        </tr>
+    </table>
+</body>
+</html>
