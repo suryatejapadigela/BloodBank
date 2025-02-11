@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+        }
+        header {
+            background-color: #4A0000;
+            padding: 20px 0;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            background-color: #4A0000;
+            color: white;
+            border: none !important;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav .left {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav .right ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav .right li {
+            margin-left: 1em;
+        }
+
+        nav .right a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            background-color: grey;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav .right a:hover {
+            background-color: red;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 40px 0;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .user-info {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            height: 425px;
+            overflow-y: auto;
+        }
+
+        .table-container {
+            flex: 1;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-box {
+            margin-bottom: 1.5em;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-box input {
+            width: 90%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: lightgray;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: border-color 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: #333;
+            outline: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4A0000;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            position: relative;
+        }
+
+        .table-container table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table-container table tbody tr {
+            transition: background-color 0.3s;
+        }
+
+        .table-container table tbody tr:hover {
+            background-color: #e9e9e9;
+        }
+
+        .table-container table tbody tr td {
+            transition: background-color 0.3s;
+        }
+
+        .table-container table tbody tr:hover td {
+            background-color: #e9e9e9;
+        }
+
+        @media (max-width: 1024px) {
+    nav {
+        padding: 0 2rem;
+    }
+
+    .user-info, .table-container {
+        padding: 30px;
+        height: auto;
+    }
+
+    nav .left {
+        font-size: 1.3em;
+    }
+
+    nav .right a {
+        padding: 0.5em 0.8em;
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    nav .left {
+        margin-bottom: 1rem;
+    }
+
+    nav .right ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav .right li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-info, .table-container {
+        width: 75%;
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0.5rem;
+    }
+
+    .user-info{
+        width: 100%;
+        padding: 15px;
+        position: static;
+    }
+    .table-container {
+        width: 100%;
+        padding: 16px;
+    }
+
+    th, td {
+        padding: 2px 2px;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    .input-box input {
+        width: 80%;
+    }
+
+    button {
+        width: 80%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Life Line</div>
+            <div class="right">
+                <ul>
+                    <li><a href="/signout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="user-info">
+            <h2>User Information</h2>
+            <div class="input-box">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" readonly>
+            </div>
+            <div class="input-box">
+                <label for="BloodGroup">Blood Group:</label>
+                <input type="text" id="BloodGroup" name="BloodGroup" value="<%= user.BloodGroup %>" readonly>
+            </div>
+            <div class="input-box">
+                <label for="number">Phone Number:</label>
+                <input type="number" id="number" name="number" value="<%= user.number %>" readonly>
+            </div>
+            <input type="hidden" id="voteValidate" name="voteValidate" value="<%= user.vote_validate %>">
+        </div>
+        <div class="table-container">
+            <h1>Donate</h1>
+            <form action="/donate" method="post">
+                <div class="input-box">
+                    <label for="donorName">Donor Name:</label>
+                    <input type="text" id="donorName" name="donorName" required>
+                </div>
+                <div class="input-box">
+                    <label for="bloodGroup">Blood Group:</label>
+                    <input type="text" id="bloodGroup" name="bloodGroup" required>
+                </div>
+                <div class="input-box">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <input type="hidden" name="phoneNumber" value="<%= userNumber %>">
+                <input type="submit" value="Submit" style="background-color: #4A0000; color: white;width: 70px; height: 30px; border-radius: 5px;">
+            </form>
+            <br><br>
+            <h1>Create a Request</h1>
+            <form action="/request" method="post">
+                <div class="input-box">
+                    <input type="text" name="patientname" placeholder="Patient Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="HospitalName" placeholder="Hospital Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="number" name="HosptialID" placeholder="Hospital ID" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="BloodGroup" placeholder="Blood Group" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Location" placeholder="Location" required>
+                </div>
+                <input type="submit" value="Submit" style="background-color: #4A0000; color: white;width: 70px; height: 30px; border-radius: 5px;">
+            </form>
+            <br>
+            <% if (!showFindSection) { %>
+            <h1>Pending Requests</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Hospital Name</th>
+                        <th>Blood Group</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% pendingRequests.forEach(request => { %>
+                    <tr>
+                        <td><%= request.patientname %></td>
+                        <td><%= request.HospitalName %></td>
+                        <td><%= request.BloodGroup %></td>
+                        <td><%= request.Location %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <% } %>
+            <div class="<%= showFindSection ? '' : 'hidden' %>">
+                <h1>Find Donors</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Donor Name</th>
+                            <th>Blood Group</th>
+                            <th>Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% JSON.parse(donors).forEach(donor => { %>
+                        <tr>
+                            <td><%= donor.donorName %></td>
+                            <td><%= donor.bloodGroup %></td>
+                            <td><%= donor.location %></td>
+                            <td>
+                                <button class="request-donor" data-donor="<%= donor.donorName %>" data-blood-group="<%= donor.bloodGroup %>" data-location="<%= donor.location %>" data-number = "<%=donor.phoneNumber%>">Request</button>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.request-donor');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const donorName = this.getAttribute('data-donor');
+                    const bloodGroup = this.getAttribute('data-blood-group');
+                    const location = this.getAttribute('data-location');
+                    const number = this.getAttribute('data-number');
+                    alert(`Donor Name: ${donorName}\nBlood Group: ${bloodGroup}\nLocation: ${location}\nNumber: ${number}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
